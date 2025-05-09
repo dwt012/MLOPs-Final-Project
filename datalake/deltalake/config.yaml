@@ -1,0 +1,9 @@
+datastore:
+  diabetes_path: C:\Users\Dell\OneDrive - National Economics University\code\MLOps\final_data
+  diabetes_deltalake_path: C:\Users\Dell\OneDrive - National Economics University\code\MLOps\final_data
+datalake:
+  endpoint: "localhost:9000"
+  bucket_name_diabetes: diabetes-dataset
+  folder_name_diabetes: diabetes
+  access_key: minioadmin
+  secret_key: minioadmin123
