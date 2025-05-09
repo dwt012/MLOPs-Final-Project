@@ -1599,3 +1599,24 @@
 [2025-05-09T13:37:34.963+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:37:34.962+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2025-05-09T13:37:34.997+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:37:34.997+0000] {dag.py:3696} INFO - Setting next_dagrun for docker_cb to 2023-12-01T00:00:00+00:00, run_after=2024-01-01T00:00:00+00:00
 [2025-05-09T13:37:35.088+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/catboost/docker.py took 0.223 seconds
+[2025-05-09T13:38:05.311+0000] {processor.py:157} INFO - Started process (PID=2299) to work on /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:38:05.312+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/catboost/docker.py for tasks to queue
+[2025-05-09T13:38:05.317+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:38:05.316+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:38:05.349+0000] {processor.py:839} INFO - DAG(s) dict_keys(['docker_cb']) retrieved from /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:38:05.383+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:38:05.383+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-09T13:38:05.412+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:38:05.412+0000] {dag.py:3696} INFO - Setting next_dagrun for docker_cb to 2023-12-01T00:00:00+00:00, run_after=2024-01-01T00:00:00+00:00
+[2025-05-09T13:38:05.439+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/catboost/docker.py took 0.131 seconds
+[2025-05-09T13:38:35.788+0000] {processor.py:157} INFO - Started process (PID=2307) to work on /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:38:35.790+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/catboost/docker.py for tasks to queue
+[2025-05-09T13:38:35.793+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:38:35.792+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:38:35.820+0000] {processor.py:839} INFO - DAG(s) dict_keys(['docker_cb']) retrieved from /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:38:35.854+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:38:35.853+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-09T13:38:35.878+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:38:35.878+0000] {dag.py:3696} INFO - Setting next_dagrun for docker_cb to 2023-12-01T00:00:00+00:00, run_after=2024-01-01T00:00:00+00:00
+[2025-05-09T13:38:35.903+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/catboost/docker.py took 0.118 seconds
+[2025-05-09T13:39:06.113+0000] {processor.py:157} INFO - Started process (PID=2315) to work on /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:39:06.114+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/catboost/docker.py for tasks to queue
+[2025-05-09T13:39:06.117+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:39:06.117+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:39:06.167+0000] {processor.py:839} INFO - DAG(s) dict_keys(['docker_cb']) retrieved from /opt/airflow/dags/catboost/docker.py
+[2025-05-09T13:39:06.195+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:39:06.194+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-09T13:39:06.217+0000] {logging_mixin.py:151} INFO - [2025-05-09T13:39:06.216+0000] {dag.py:3696} INFO - Setting next_dagrun for docker_cb to 2023-12-01T00:00:00+00:00, run_after=2024-01-01T00:00:00+00:00
+[2025-05-09T13:39:06.241+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/catboost/docker.py took 0.131 seconds
