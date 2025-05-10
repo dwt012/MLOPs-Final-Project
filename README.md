@@ -25,7 +25,7 @@ This repository contains an end-to-end MLOps pipeline for diabetes prediction us
 1. **Installation**
    Run this for this project environment settings 
    ```
-   pip install -r requirements
+   pip install -r requirements.txt
     ```
 2. **Streaming process**  
    **Description**
