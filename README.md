@@ -90,7 +90,8 @@ pip install -r requirements.txt
    ![image](https://github.com/user-attachments/assets/511ce573-c3a7-47f3-ae54-62bda862a80d)
    - When the batch passes all quality checks, the data is promoted from the staging table into the serving table
    - Finally, an Airflow DAG combines it all together: start the Spark job, executes Great Expectations, sawps in the new serving table, then run a task to retrain the model on this new data.
-      
+      <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 03 06 44" src="https://github.com/user-attachments/assets/ac9501e8-5574-4c02-87e7-2b3e32d97fdb" />
+
 ---
 
 
