@@ -21,6 +21,31 @@ This repository contains an end-to-end MLOps pipeline for diabetes prediction us
 
 ---
 
+## Getting Started
+
+Follow these steps to clone the repository and set up the environment.
+
+> **Recommended OS**: macOS or Linux for best compatibility with Docker and Airflow.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/dwt012/MLOPs-Final-Project.git
+cd MLOPs-Final-Project
+```
+
+---
+### 2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+### ✅ Notes
+
+* Ensure Docker is installed and the daemon is running.
+* Use a Python version officially supported by your Airflow version.
+
+---
 ### Workflow
 1. **Installation**
    Run this for this project environment settings 
