@@ -73,3 +73,6 @@ https://github.com/user-attachments/assets/8a3b400c-2d04-4e6c-a0db-1237ff334bd4
 - Nguyen Minh Huong
 - Nguyen Tuan Trong
 - Dang Thi Phuong Thao
+## Reference
+[Feature Store Repository by dunghoang369](https://github.com/dunghoang369/feature-store)
+
