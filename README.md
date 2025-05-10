@@ -40,7 +40,7 @@ cd MLOPs-Final-Project
 ```bash
 pip install -r requirements.txt
 ```
-### ✅ Notes
+### Notes
 
 * Ensure Docker is installed and the daemon is running.
 * Use a Python version officially supported by your Airflow version.
@@ -70,16 +70,23 @@ pip install -r requirements.txt
    ```
      python insert_table.py
    ```
-  Access Kafka control center to check the result, topics **diabetes_cdc.public.diabetes_new** is defined topic for Debezium to detect change in PostgreSQL 
+   After running this script, we can access Kafka at port 9021:
+ 
+ <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 01 12 01" src="https://github.com/user-attachments/assets/6e1c149d-5e10-44d2-b658-cd075704c3dc" />
+
+   Topics **diabetes_cdc.public.diabetes_new** is defined topic for Debezium to detect change in PostgreSQL 
      <img width="1440" alt="Ảnh màn hình 2025-05-09 lúc 22 28 04" src="https://github.com/user-attachments/assets/5919d0b1-23bd-4af4-ac99-5cde26f5e211" />
+   Observe streaming messages in Message
+   <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 01 21 14" src="https://github.com/user-attachments/assets/d749ff1a-fb85-450f-8d32-eb0a252361a1" />
 
    - To handle streaming data source, we use Pyflink
     ```
      python datastream_api.py
     ```
-   -  This script will check necessary keys in messages as well as filter redundant keys and merge data for later use. Processed samples will be stored back to Kafka in the defnied sink **diabetes_out.public.sink_diabetes**
-   -  Message from sink will be fed into diabetes service to get predictions. From then, new data is created and fed into Serving table as well as return prediction on UI for user
-3. **Batch Process**
+   This script will check necessary keys in messages as well as filter redundant keys and merge data for later use. Processed samples will be stored back to Kafka in the defnied sink **diabetes_out.public.sink_diabetes**
+   Message from sink will be fed into diabetes service to get predictions. From then, new data is created and fed into Serving table as well as return prediction on UI for user
+     <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 01 20 59" src="https://github.com/user-attachments/assets/f7abb724-4635-43bb-b901-2ccd4ca77a97" />
+4. **Batch Process**
    **Guideline**
    - Pick up the latest data of the Diabetes dataset, rewrite the format into deltalake and export it into MinIO object storage as a set of unchangeable raw files.
 ![image](https://github.com/user-attachments/assets/f902252a-9481-4948-a2ab-0dfa8edc13ba)
