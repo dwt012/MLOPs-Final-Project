@@ -4,7 +4,7 @@ This repository contains an end-to-end MLOps pipeline for diabetes prediction us
 ## Introduction
 ### Architecture Overview
 
-<img width="883" alt="Ảnh màn hình 2025-05-10 lúc 19 14 54" src="https://github.com/user-attachments/assets/dbd07edf-8149-426f-b451-31ccf20fe2b9" />
+<img width="883" alt="Ảnh màn hình 2025-05-10 lúc 19 14 54" src="https://github.com/user-attachments/assets/dbd07edf-8149-426f-b451-31ccf20fe2b9" />
 
 ### Components
 
@@ -40,7 +40,7 @@ cd MLOPs-Final-Project
 ```bash
 pip install -r requirements.txt
 ```
-### ✅ Notes
+### Notes
 
 * Ensure Docker is installed and the daemon is running.
 * Use a Python version officially supported by your Airflow version.
@@ -70,15 +70,22 @@ pip install -r requirements.txt
    ```
      python insert_table.py
    ```
-  Access Kafka control center to check the result, topics **diabetes_cdc.public.diabetes_new** is defined topic for Debezium to detect change in PostgreSQL 
-     <img width="1440" alt="Ảnh màn hình 2025-05-09 lúc 22 28 04" src="https://github.com/user-attachments/assets/5919d0b1-23bd-4af4-ac99-5cde26f5e211" />
+   After running this script, we can access Kafka at port 9021:
+ 
+      <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 01 12 01" src="https://github.com/user-attachments/assets/6e1c149d-5e10-44d2-b658-cd075704c3dc" />
+
+   Topics **diabetes_cdc.public.diabetes_new** is defined topic for Debezium to detect change in PostgreSQL 
+      <img width="1440" alt="Ảnh màn hình 2025-05-09 lúc 22 28 04" src="https://github.com/user-attachments/assets/5919d0b1-23bd-4af4-ac99-5cde26f5e211" />
+   Observe streaming messages in Message
+      <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 01 21 14" src="https://github.com/user-attachments/assets/d749ff1a-fb85-450f-8d32-eb0a252361a1" />
 
    - To handle streaming data source, we use Pyflink
     ```
      python datastream_api.py
     ```
-   -  This script will check necessary keys in messages as well as filter redundant keys and merge data for later use. Processed samples will be stored back to Kafka in the defnied sink **diabetes_out.public.sink_diabetes**
-   -  Message from sink will be fed into diabetes service to get predictions. From then, new data is created and fed into Serving table as well as return prediction on UI for user
+   This script will check necessary keys in messages as well as filter redundant keys and merge data for later use. Processed samples will be stored back to Kafka in the defnied sink **diabetes_out.public.sink_diabetes**
+   Message from sink will be fed into diabetes service to get predictions. From then, new data is created and fed into Serving table as well as return prediction on UI for user
+      <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 01 20 59" src="https://github.com/user-attachments/assets/f7abb724-4635-43bb-b901-2ccd4ca77a97" />
 3. **Batch Process**
    **Guideline**
    - Pick up the latest data of the Diabetes dataset, rewrite the format into deltalake and export it into MinIO object storage as a set of unchangeable raw files.
@@ -89,12 +96,14 @@ pip install -r requirements.txt
    - To validate the data-quality, Great Expectations will run a suite of statements against that table (e.g. distribution test, expect non-null,...). Any validation failures can automatically trigger alerts or stop downstream processes.
    ![image](https://github.com/user-attachments/assets/511ce573-c3a7-47f3-ae54-62bda862a80d)
    - When the batch passes all quality checks, the data is promoted from the staging table into the serving table
-   - Finally, an Airflow DAG combines it all together: start the Spark job, executes Great Expectations, sawps in the new serving table, then run a task to retrain the model on this new data.
-      <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 03 06 44" src="https://github.com/user-attachments/assets/ac9501e8-5574-4c02-87e7-2b3e32d97fdb" />
-
+ 4. **Schedule task**
+    
+   Finally, an Airflow DAG run a task to retrain the model on this new data. In this project, Airflow DAG run trainning script on every first day of month
+   **Guideline**
+   - Airflow is access ar port 8080
+      <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 03 06 44" src="https://github.com/user-attachments/assets/bc58c9a4-48fd-48c3-b637-ee0179d56404" />
+   New training models will be saved pipeline/models
 ---
-
-
 ## Demo
 
 
