@@ -4,7 +4,7 @@ This repository contains an end-to-end MLOps pipeline for diabetes prediction us
 
 ## Architecture Overview
 
-![Pipeline Architecture]<img width="880" alt="Ảnh màn hình 2025-05-10 lúc 16 51 46" src="https://github.com/user-attachments/assets/9ae8ed00-957f-4305-bc0f-06cebb5e7981" />
+<img width="880" alt="Ảnh màn hình 2025-05-10 lúc 16 51 46" src="https://github.com/user-attachments/assets/9ae8ed00-957f-4305-bc0f-06cebb5e7981" />
 
 
 ### Components
