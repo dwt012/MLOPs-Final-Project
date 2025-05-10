@@ -63,10 +63,4 @@ This repository contains an end-to-end MLOps pipeline for diabetes prediction us
 - Python 3.8+
 - Git
 
-### Installation
-
-```bash
-git clone https://github.com/your-username/diabetes-mlops-pipeline.git
-cd diabetes-mlops-pipeline
-docker-compose up --build
 
