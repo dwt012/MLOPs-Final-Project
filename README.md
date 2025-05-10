@@ -86,7 +86,7 @@ pip install -r requirements.txt
    This script will check necessary keys in messages as well as filter redundant keys and merge data for later use. Processed samples will be stored back to Kafka in the defnied sink **diabetes_out.public.sink_diabetes**
    Message from sink will be fed into diabetes service to get predictions. From then, new data is created and fed into Serving table as well as return prediction on UI for user
      <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 01 20 59" src="https://github.com/user-attachments/assets/f7abb724-4635-43bb-b901-2ccd4ca77a97" />
-4. **Batch Process**
+3. **Batch Process**
    **Guideline**
    - Pick up the latest data of the Diabetes dataset, rewrite the format into deltalake and export it into MinIO object storage as a set of unchangeable raw files.
 ![image](https://github.com/user-attachments/assets/f902252a-9481-4948-a2ab-0dfa8edc13ba)
@@ -96,11 +96,13 @@ pip install -r requirements.txt
    - To validate the data-quality, Great Expectations will run a suite of statements against that table (e.g. distribution test, expect non-null,...). Any validation failures can automatically trigger alerts or stop downstream processes.
    ![image](https://github.com/user-attachments/assets/511ce573-c3a7-47f3-ae54-62bda862a80d)
    - When the batch passes all quality checks, the data is promoted from the staging table into the serving table
-   - Finally, an Airflow DAG combines it all together: start the Spark job, executes Great Expectations, sawps in the new serving table, then run a task to retrain the model on this new data.
-      
+ 4. **Schedule task**
+Finally, an Airflow DAG run a task to retrain the model on this new data. In this project, Airflow DAG run trainning script on every first day of month
+   **Guideline**
+   - Airflow is access ar port 8080
+   <img width="1440" alt="Ảnh màn hình 2025-05-11 lúc 03 06 44" src="https://github.com/user-attachments/assets/bc58c9a4-48fd-48c3-b637-ee0179d56404" />
+   New training models will be saved pipeline/models
 ---
-
-
 ## Demo
 
 
