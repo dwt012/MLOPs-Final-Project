@@ -27,11 +27,22 @@ This repository contains an end-to-end MLOps pipeline for diabetes prediction us
    **Description**
    User will enter data through UI, these streaming data will be stored in a table in PostgreSQL
    Then Debezium, which is connector forPostgreSQL will scan the table to check whether the database has new data. The detected new data will be pushed to defined topic in Kafka
+   
    **Detail guideline**
-   - Create a connector between PostgreSQL and Debezium-> add code 
-   - Create a new table on PostgreSQL-> add code 
-   - Insert data to the table-> add code 
+   - Create a connector between PostgreSQL and Debezium
+    ```
+   ./run.sh register_connector ../configs/postgresql-cdc.json
+    ```
+   - Create a new table on PostgreSQL
+   ```
+   python create_table.py
+    ```
+   - Insert data to the table
+     ```
+     python insert_table.py
+      ``` 
      <img width="1440" alt="Ảnh màn hình 2025-05-09 lúc 22 28 04" src="https://github.com/user-attachments/assets/5919d0b1-23bd-4af4-ac99-5cde26f5e211" />
+
 Access control center Kafka to check the result, topics diabetes_cdc.public.diabetes_new is defined topic for Debezium to detect change in PostgreSQL
    - To handle streaming datasource, we use Pyflink -> add code. This script will check necessary keys in messages as well as filter redundant keys and merge data for later use
 - Processed samples will be stored back to Kafka in the defnied sink diabetes_out.public.sink_diabetes 
