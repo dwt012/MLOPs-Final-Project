@@ -56,6 +56,14 @@ This repository contains an end-to-end MLOps pipeline for diabetes prediction us
 
 ---
 
+## Demo
+
+
+https://github.com/user-attachments/assets/8a3b400c-2d04-4e6c-a0db-1237ff334bd4
+
+
+---
+
 ## Getting Started
 
 ### Prerequisites
