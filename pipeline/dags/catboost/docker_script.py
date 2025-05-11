@@ -13,7 +13,7 @@ with DAG(
     # from other components
     train_task = DockerOperator(
         task_id="train_task",
-        image="dunghoang99/airflow-cb-stage:0.0.1",
+        image="dawngthao/airflow-cb-stage:0.0.1",
         container_name="airflow-cb-stage",
         api_version="auto",
         auto_remove="force",
