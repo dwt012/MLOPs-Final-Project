@@ -1,3 +1,3 @@
 #!/bin/bash
-docker build -t dunghoang99/airflow-cb-stage:0.0.1 .
-docker push dunghoang99/airflow-cb-stage:0.0.1
+docker build -t dawngthao/airflow-cb-stage:0.0.1 .
+docker push dawngthao/airflow-cb-stage:0.0.1
